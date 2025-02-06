@@ -21,18 +21,18 @@ public class Hooks {
      */
     @After
     public void teardownScenario(Scenario scenario) {
-        try {
-            // If the scenario failed, take a screenshot and save it to the "screenshots" folder
-            if (scenario.isFailed()) {
+
+        // If the scenario failed, take a screenshot and save it to the "screenshots" folder
+        if (scenario.isFailed()) {
+            try {
                 final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", scenario.getName());
                 File screenshotFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
                 Files.move(screenshotFile, new File("src/test/resources/screenshots/" + scenario.getName() + ".png"));
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to take screenshot at the end of the scenario: " + scenario.getName(), e);
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to take screenshot at the end of the scenario: " + scenario.getName(), e);
         }
-
         // Close the driver
         Driver.closeDriver();
     }
