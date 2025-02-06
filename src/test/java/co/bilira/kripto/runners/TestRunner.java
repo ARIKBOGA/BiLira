@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports.html",
+                "html:src/test/resources/reports/cucumber.html",
                 "json:target/cucumber.json",
                 "junit:target/cucumber.xml"
         },
