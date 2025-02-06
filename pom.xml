@@ -16,6 +16,13 @@
 
     <dependencies>
 
+        <!-- Selenium for Browser Automation -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.28.1</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -75,6 +82,13 @@
             <version>1.18.36</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>8.30.0</version>
+        </dependency>
+
 
     </dependencies>
 
